@@ -4,5 +4,12 @@
 모듈 가져오기 => require('모듈')
 */
 
-const variable = require('./ex02var');
-console.log(variable);
+// const variable = require('./ex02var');
+// console.log(variable);
+
+const {odd, even} = require('./ex02var');
+// console.log(odd, even);
+
+let num = 5;
+let result = num % 2 === 1 ? odd : even
+console.log(result);
