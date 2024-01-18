@@ -14,13 +14,21 @@ http.createServer(async(req, res) => {
     console.log(typeof parseUrl.query.num1);
     const num1 = Number(parseUrl.query.num1);
     const num2 = Number(parseUrl.query.num2);
+    
+    let result = '';
+    switch(parseUrl.query.cal) {
+        case 'plus' : result = num1 + num2; break;
+        case 'minus' : result = num1 - num2; break;
+        case 'multiply' : result = num1 * num2; break;
+        case 'divie' : result = num1 / num2; break;
+    }
 
     const data = `
     <html>
         <body>
             <p>첫번째 숫자 : ${num1}</p>
             <p>두번째 숫자 : ${num2}</p>
-            <p>연산 결과 : ${num1 + num2}</p>
+            <p>연산 결과 : ${result}</p>
         </body>
     </html>
     `
