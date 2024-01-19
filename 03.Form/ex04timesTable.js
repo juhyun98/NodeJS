@@ -10,14 +10,20 @@ http.createServer(async (req, res)=>{
     const num = Number(parseUrl.query.num);
 
     res.writeHead(200, {'Content-Type' : 'text/html; charset=utf-8'});
+
     let data ='';
-    data += `<html><body><table border="1px solid black"><tr>`
+
+    data += `<html><body><table border="1px solid black">`
+
     for(let i = 1; i <= 9; i++) {
         data += `<tr><td>${num} X ${i} = ${num * i}</td></tr>`
     }
-    data += `</tr></table></body></html>`
+
+    data += `</table></body></html>`
+
     parseUrl.pathname === '/' && res.write(file);
     parseUrl.pathname === '/result' && res.write(data);
+    
     res.end();
 })
 .listen(8000, ()=>{
