@@ -33,6 +33,8 @@ Node JS : 크롬 V8 엔진 기반의 자바스크립트 런타임
 
 <br>
 모듈 : NodeJS에서 만들어진 기능들의 단위
+<br>
 모듈 가져오기 => require(모듈이름)
+<br>
 모듈 내보내기 => module.exports
 
