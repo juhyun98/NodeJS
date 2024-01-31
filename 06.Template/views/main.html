@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+{% extends "layout.html" %}
+
+{% block content %}
+
     <!-- 
         Nunjucks 사용 방법
         => JS 문법을 사용하려면 중괄호 두개로 감싸준다.
@@ -40,12 +36,21 @@
         for in + endfor
         반복 시작 : for 변수 in 배열
         반복 끝 : endfor
-     -->
-     {% set menu = ['크림뚝불', '크림순대국밥', '크림부대찌개'] %}
-     <ul>
+    -->
+    {% set menu = ['크림뚝불', '크림순대국밥', '크림부대찌개'] %}
+    <ul>
         {% for item in menu %}
-        <li>제가 좋아하는 것은 {{item}}입니다.</li>
+        <li>제가 좋아하는 것은 {{loop.index}} : {{item}}입니다.</li>
         {% endfor %}
-     </ul>
-</body>
-</html>
+    </ul>
+
+    <!-- 
+        4. include
+        다른 html 파일을 포함
+    -->
+    {% include "refer.html" %}
+{% endblock %}
+
+{% block lunch %}
+    <p>점메추</p>
+{% endblock %}
