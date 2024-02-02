@@ -19,4 +19,15 @@ router.get('/signin', (req, res) => {
     res.render('signin');
 })
 
+// 회원검색 페이지
+router.get('/search', (req, res) => {
+    console.log('회원검색 페이지');
+    res.render('search');
+})
+
+// 회원탈퇴 페이지
+router.get('/delete', (req, res) => {
+    res.render('delete');
+})
+
 module.exports = router;

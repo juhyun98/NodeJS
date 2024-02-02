@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
-<h4>로그인 페이지</h4>
-<form action="/user/handleSignIn" method="post">
+<h4>회원탈퇴 페이지</h4>
+<form action="/user/handleDelete" method="post">
     <div class="mb-3">
         <label for="exampleInputId" class="form-label">ID</label>
         <input type="text" class="form-control" id="exampleInputId" name="userId">
@@ -10,6 +10,6 @@
         <label for="exampleInputPassword1" class="form-label">Password</label>
         <input type="password" class="form-control" id="exampleInputPassword1" name="userPw">
     </div>
-    <button type="submit" class="btn btn-secondary">회원가입</button>
+    <button type="submit" class="btn btn-danger">회원탈퇴</button>
   </form>
 {% endblock %}
