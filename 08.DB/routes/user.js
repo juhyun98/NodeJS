@@ -42,13 +42,19 @@ router.post('/handleSignUp', (req, res)=>{
 router.post('/handleSignIn', (req, res) => {
     console.log('signin data', req.body);
     const {userId, userPw} = req.body;
-    const sql = 'select id from nodejs_member where id = ? and pw =?';
+    const sql = 'select id nick from nodejs_member where id = ? and pw =?';
     conn.query(sql, [userId, userPw], (err, rows) => {
         console.log('err', err);
         console.log('rows', rows);
         if (rows.length > 0) {
             console.log('로그인 성공');
-            res.redirect('/')
+            req.session.nickname = rows[0].nick;
+            // res.redirect('/')
+            res.send(`
+            <script>
+                location.href='/'
+            </script>
+            `);
         }else {
             console.log('로그인 실패');
             res.send(`<script>
@@ -95,6 +101,12 @@ router.post('/handleDelete', (req, res) => {
             </script>`);
         }
     })
+})
+
+// 로그아웃 기능
+router.get('/signout', (req, res) => {
+    req.session.destroy();
+    res.redirect('/');
 })
 
 module.exports = router;

@@ -3,8 +3,8 @@ const router = express.Router();
 
 // 메인 페이지
 router.get('/', (req, res) => {
-    console.log('main page');
-    res.render('main');
+    console.log('main page', req.session.nickname);
+    res.render('main', {nickname : req.session.nickname});
 })
 
 // 회원가입 페이지
