@@ -38,3 +38,77 @@ Node JS : 크롬 V8 엔진 기반의 자바스크립트 런타임
 <br>
 모듈 내보내기 => module.exports
 
+-------------------------------------------------------------------------------
+
+Express
+Node.js를 위한 빠르고 개방적인 간결한 웹 프레임워크
+
+Middle Ware
+클라이언트가 서버에 요청을 보낼 때
+그 요청과 서버의 응답 사이에 여러 기능을 수행하는 함수들
+
+Express 폴더 생성
+경로 설정
+npm init -y => 터미널 입력 (package.json 생성됨)
+npm i express ( i = install) => express 설치
+
+템플릿 엔진
+=> 정적인 html을 동적으로 처리
+
+종류 : 넌적스(Nunjucks), EJS, PUG, ...
+=> html 문법과 유사하고 html 확장자를 사용하는 넌적스 사용
+
+(1) 인스톨
+npm install express nunjucks chokidar
+
+(2) 가져오기
+const nunjucks = require('nunjucks')
+
+(3) view 엔진 확장자 설정
+app.set('view engine', 'html')
+
+(4) 넌적스 구성 설정
+nunjucks.configure(경로, 옵션 설정)
+- 옵션 설정 => 객체 형태로 작성
+- express : app => express가 담겨 있는 객체 연결
+- watch : true => html 변경 시 템플릿 엔진 리렌더링
+
+기본문법
+(1) 변수 처리
+router.get('/', (~) => {
+    res.render('index', {name : 'heejae'})
+})
+<h1>{{name}}</h1>
+(2) 내부 변수 선언
+{% set name = 'heejae' %}
+(3) 조건문
+{% if 조건식1 %}
+<p>첫번째 조건을 만족합니다</p>
+{% elif 조건식2 %}
+<p>두번째 조건을 만족합니다</p>
+{% else %}
+<p>어떤 조건도 만족하지 않습니다</p>
+{% endif %}
+(4) 반복문
+{% for item in array %}
+<p>{{loop.index}} : {{item}}</p>
+{% endfor %}
+
+app.js
+=> express, nunjucks,
+    라우팅 등 기본 세팅
+
+routes/index/js
+=> 기본 경로 세팅
+
+nodeJS > mkdir 09.CookieSession
+nodeJS > cd 09.CookieSession
+09.~ > npm init -y
+09. ~ > npm install expree
+cookie-parser express-session
+session-file-store
+
+
+
+
+
