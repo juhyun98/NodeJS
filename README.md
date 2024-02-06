@@ -78,7 +78,9 @@ nunjucks.configure(경로, 옵션 설정)
 router.get('/', (~) => {
     res.render('index', {name : 'heejae'})
 })
+```
 <h1>{{name}}</h1>
+```
 (2) 내부 변수 선언
 {% set name = 'heejae' %}
 (3) 조건문
